@@ -1,17 +1,18 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "My Company Blog2"
-    xml.description "This is a blog by My Company"
-    xml.link root_url
+    xml.title "Otodom RSS"
+    xml.link welcome_url(format: :rss)
 
     @data.each do |offer|
       xml.item do
-        xml.title offer#.title
-        # xml.description article.body
-        # xml.pubDate article.published_at.to_s(:rfc822)
-        # xml.link article_url(article)
-        # xml.guid article_url(article)
+        xml.title offer.fetch(:title)
+        xml.link offer.fetch(:url)
+        xml.description offer.fetch(:description)
+        xml.enclosure url: offer.fetch(:image), type: 'image/webp'
+        xml.guid offer.fetch(:url)
+        # xml.pubDate
+        xml.source welcome_url(format: :rss)
       end
     end
   end
