@@ -27,7 +27,7 @@ class WelcomeController < ApplicationController
       {
         title: title,
         url: link,
-        description: x.css('p span').map(&:text).join(' ') + x.to_s[%r{\d+.(zł/mc|EUR|€|zł)}],
+        description: x.css('p span').map(&:text).join(' ') + ' ' + x.to_s[%r{\d+.(zł/mc|EUR|€|zł)}],
         image: x.css('picture source').last['srcset'],
         # pubDate: ,
         guid: link
