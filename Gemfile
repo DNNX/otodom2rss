@@ -58,3 +58,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'builder'
 gem 'sentry-raven'
+gem 'delayed_job_active_record'
